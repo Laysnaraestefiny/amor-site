@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Para Andréia ♥</title>
+
+<style>
+body{
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+padding:40px 20px;
+}
+
+input{
+padding:10px;
+border-radius:10px;
+border:none;
+text-align:center;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff1e56;
+cursor:pointer;
+margin-top:15px;
+}
+
+.hidden{
+display:none;
+}
+
+img{
+width:250px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,0.6);
+margin-top:20px;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+color:red;
+}
+
+@keyframes fall{
+to{transform:translateY(100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="login">
+<h2>🔐 Projeto protegido</h2>
+<p>Digite a senha:</p>
+<input type="password" id="senha">
+<br>
+<button onclick="entrar()">Entrar ♥</button>
+</div>
+
+<div class="container hidden" id="conteudo">
+
+<h2>Andréia ♥</h2>
+
+<img src="foto.jpg" style="width: 250px;border: ;"
+<h3>Estamos juntas há:</h3>
+<div id="contador"></div>
+
+<br><br>
+
+<iframe style="border-radius:12px" 
+src="https://open.spotify.com/embed/track/1fZgxJgmmOl8zCyHgcKAWE" 
+width="300" height="80" frameBorder="0" 
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+<br><br>
+
+<button onclick="mostrarCarta()">Ler minha carta 💌</button>
+
+</div>
+
+<div class="container hidden" id="carta">
+<p style="max-width:600px;margin:auto;line-height:1.6;">
+
+Se eu pudesse escolher qualquer lugar no mundo para estar agora,
+eu ainda escolheria você.<br><br>
+
+Não é sobre promessas enormes ou palavras bonitas demais.
+É sobre a paz que eu sinto quando penso na gente.
+É sobre como o meu dia fica mais leve só porque você existe.<br><br>
+
+Eu amo o jeito que você sorri,
+amo como você me cuida,
+amo até as partes suas que você acha difíceis,
+porque todas elas formam a mulher que eu escolhi amar.<br><br>
+
+Eu não quero um amor perfeito.
+Eu quero o nosso.
+Com verdade, com construção, com planos e com mãos dadas.<br><br>
+
+Você é o meu hoje seguro
+e o meu futuro desejado.<br><br>
+
+E se eu pudesse resumir tudo em uma frase, seria:
+eu sou muito feliz por ser sua. ♥
+</p>
+</div>
+
+<script>
+
+function entrar(){
+let senha=document.getElementById("senha").value;
+if(senha==="te amoor"){
+document.getElementById("login").classList.add("hidden");
+document.getElementById("conteudo").classList.remove("hidden");
+}else{
+alert("Senha incorreta ♥");
+}
+}
+
+let dataInicio=new Date("2025-07-12");
+
+function atualizarContador(){
+let agora=new Date();
+let diff=agora-dataInicio;
+
+let dias=Math.floor(diff/(1000*60*60*24));
+let horas=Math.floor((diff/(1000*60*60))%24);
+let minutos=Math.floor((diff/(1000*60))%60);
+
+document.getElementById("contador").innerHTML=
+dias+" dias "+horas+" horas "+minutos+" minutos ♥";
+}
+
+setInterval(atualizarContador,1000);
+atualizarContador();
+
+function mostrarCarta(){
+document.getElementById("conteudo").classList.add("hidden");
+document.getElementById("carta").classList.remove("hidden");
+}
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="♥";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+},500);
+
+</script>
+
+</body>
+</html>
+
+
